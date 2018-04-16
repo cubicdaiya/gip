@@ -1,6 +1,6 @@
 all: gip
 
-gip:
+gip: *.go
 	go build
 
 fmt:
