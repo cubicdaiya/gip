@@ -35,7 +35,7 @@ func main() {
 	if ipnet.Contains(ip) {
 		fmt.Printf("%s includes %s.", ipnet.String(), ip.String())
 	} else {
-		fmt.Printf("%s does not include %s.", ipnet.String(), ip.String())
+		fmt.Printf("%s does not include %s", ipnet.String(), ip.String())
 	}
 	fmt.Println()
 }
