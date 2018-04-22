@@ -13,6 +13,14 @@ func usage() {
 	os.Exit(1)
 }
 
+func printResult(ipnet *net.IPNet, ip net.IP) {
+	if ipnet.Contains(ip) {
+		fmt.Printf("%s includes %s.\n", ipnet.String(), ip.String())
+	} else {
+		fmt.Printf("%s does not include %s\n", ipnet.String(), ip.String())
+	}
+}
+
 func main() {
 	var (
 		ipStr   string
@@ -36,9 +44,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	if ipnet.Contains(ip) {
-		fmt.Printf("%s includes %s.\n", ipnet.String(), ip.String())
-	} else {
-		fmt.Printf("%s does not include %s\n", ipnet.String(), ip.String())
-	}
+	printResult(ipnet, ip)
 }
